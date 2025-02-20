@@ -1,0 +1,326 @@
+format = '''
+[┌─────────────────────────────────────────────────────────────────>](bold green)
+$directory$line_break$all
+[│](bold green)
+[└─>](bold green) '''
+
+right_format = '''$git_branch $localip'''
+
+add_newline = false
+
+command_timeout = 1200
+
+[aws]
+symbol = "  "
+disabled = true
+
+[battery]
+full_symbol = '󰁹 '
+charging_symbol = '󰂄 '
+discharging_symbol = '󰂃 '
+unknown_symbol = '󰁽 '
+empty_symbol = '󰂎 '
+format = '[$symbol$percentage]($style) '
+disabled = false
+
+[[battery.display]]
+threshold = 10
+style = 'bold red'
+
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+format = 'via [$symbol($version(-$name) )]($style)'
+version_format = 'v${raw}'
+detect_extensions = ['c', 'cpp']
+detect_files = ['.c', '.cpp']
+detect_folders = []
+commands = [['g++', '--version'], ['clang', '--version']]
+style = 'bold 149'
+disabled = false
+
+[character]
+disabled = true
+
+[cmd_duration]
+min_time = 60000
+format = '実行: [$duration](bold yellow)'
+show_milliseconds = true
+disabled = true
+
+[cobol]
+symbol = '⚙️ '
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+style = 'bold blue'
+detect_extensions = ['cbl', 'cob', 'CBL', 'COB']
+detect_files = ['*.cbl', '*.cob']
+detect_folders = []
+disabled = false
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 100
+truncation_symbol = "…"
+truncate_to_repo = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold cyan'
+read_only_style = 'red'
+disabled = false
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+home_symbol = "~"
+use_os_path_sep = true
+
+[docker_context]
+symbol = " "
+format = 'via [$symbol$context]($style) '
+only_with_files = false
+detect_extensions = ['dockerfile']
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_folders = []
+style = 'bold blue'
+disabled = false
+
+[elixir]
+symbol = " "
+format = 'via [$symbol($version \(OTP $otp_version\) )]($style)'
+version_format = 'v${raw}'
+detect_extensions = ['ex', 'exs']
+detect_files = ['*.exs', '*.ex']
+detect_folders = []
+disabled = false
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fill]
+symbol = ' '
+style = ''
+
+# [fossil_branch]
+# symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_status]
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+disabled = true
+
+[golang]
+symbol = " "
+
+[gcloud]
+symbol = " "
+disabled = true
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+# [hg_branch]
+# symbol = " "
+
+[hostname]
+ssh_only = false
+ssh_symbol = '🌐 '
+trim_at = '.'
+detect_env_vars = []
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold dimmed green'
+disabled = true
+
+[java]
+symbol = " "
+format = 'via [${symbol}(${version} )]($style)'
+version_format = 'v${raw}'
+detect_extensions = ['java', 'class', 'gradle', 'jar', 'cljs', 'cljc']
+detect_files = [
+  'pom.xml',
+  'build.gradle.kts',
+  'build.sbt',
+  '.java-version',
+  'deps.edn',
+  'project.clj',
+  'build.boot',
+  '.sdkmanrc',
+]
+detect_folders = []
+style = 'bold red dimmed'
+disabled = false
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[localip]
+ssh_only = false
+format = '[@$localipv4]($style) '
+style = 'bold yellow'
+disabled = false
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+# [nim]
+# symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+disabled = true
+
+[nodejs]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os]
+format = "on [($name )]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+disabled = true
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+# [pijul_channel]
+# symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shell]
+fish_indicator = '󰈺 '
+format = '[$indicator]($style) '
+style = 'cyan bold italic'
+disabled = false
+
+[swift]
+symbol = " "
+
+[time]
+format = 'at [$time]($style) '
+use_12hr = false
+time_format = '%H:%M:%S'
+style = 'bold dimmed yellow'
+utc_time_offset = 'local'
+disabled = true
+time_range = '-'
+
+[vagrant]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '⍱ '
+detect_extensions = ['Vagrantfile']
+detect_folders = []
+style = 'cyan bold'
+disabled = true
+
+
+[zig]
+symbol = " "
+
+[line_break]
+disabled = false
