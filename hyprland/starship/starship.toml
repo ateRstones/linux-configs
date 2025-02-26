@@ -1,3 +1,4 @@
+# thank you to @mio-dokuhaki (https://github.com/mio-dokuhaki) for providing this config
 format = '''
 [┌─────────────────────────────────────────────────────────────────>](bold green)
 $directory$line_break$all
