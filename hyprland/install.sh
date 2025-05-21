@@ -6,6 +6,7 @@ ln -sf $(pwd)/fish/git.fish ~/.config/fish/git.fish
 
 mkdir -p ~/.config/hypr
 ln -sf $(pwd)/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
+ln -sf $(pwd)/hyprlock/hyprlock.conf ~/.config/hypr/hyprlock.conf
 ln -sf $(pwd)/hyprpaper/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 
 mkdir -p ~/Documents/wallpaper
@@ -21,3 +22,5 @@ ln -sf $(pwd)/waybar/config.jsonc ~/.config/waybar/config.jsonc
 ln -sf $(pwd)/waybar/style.css ~/.config/waybar/style.css
 
 ln -sf $(pwd)/nvim ~/.config/nvim
+
+ln -sf $(pwd)/kanshi ~/.config/kanshi
