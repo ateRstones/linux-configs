@@ -26,7 +26,7 @@ output "BNQ BenQ FP93G 0x00001EF5" {
 	alias $HOME_RIGHT
 }
 
-output "Huawei Technologies Co. Inc. ZQE-CBA 0xC080F622" {
+output "Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622" {
 	mode 3440x1440@99.98
 	position -3440,0
 	scale 1
@@ -53,4 +53,5 @@ profile worklaptop {
 profile homepc {
 	output $HOME_CENTER enable
 	output $HOME_RIGHT enable
+    output $HOME_LEFT enable
 }
