@@ -40,6 +40,13 @@ output "AOC Q32G1WG4 0x0000160B" {
 	alias $HOME_CENTER
 }
 
+output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x0536 Unknown" {
+    mode 1920x1080@60.01
+    position 0,0
+    scale 1
+    alias $HACKLAPTOP
+}
+
 profile worklaptop_work {
 	output $WORK_LEFT_1 enable
 	output $WORK_RIGHT_1 enable
@@ -54,4 +61,8 @@ profile homepc {
 	output $HOME_CENTER enable
 	output $HOME_RIGHT enable
     output $HOME_LEFT enable
+}
+
+profile hacklaptop {
+    output $HACKLAPTOP enable
 }
