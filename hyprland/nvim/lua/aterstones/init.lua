@@ -100,3 +100,6 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({}),
 })
+
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find files' })
+
