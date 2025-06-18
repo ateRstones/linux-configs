@@ -103,3 +103,18 @@ cmp.setup({
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find files' })
 
+-- Make system clipboard the default for most operations (except 'd')
+vim.opt.clipboard:append('unnamedplus')
+
+-- Optional: If you want to ensure 'd' (delete) does NOT use the clipboard by default,
+-- you can remap 'd' to explicitly use the default register.
+-- These mappings are only needed if you find that 'd' is copying to the clipboard.
+
+-- Normal mode: 'd' uses the default register
+vim.keymap.set('n', 'd', '"zd', { noremap = true })
+vim.keymap.set('n', 'dd', '"zdd', { noremap = true })
+vim.keymap.set('n', 'D', '"zD', { noremap = true })
+
+-- Visual mode: 'd' uses the default register
+vim.keymap.set('v', 'd', '"zd', { noremap = true })
+vim.keymap.set('v', 'D', '"zD', { noremap = true })
