@@ -19,6 +19,21 @@ output "Dell Inc. DELL P2722HE DTD97H3" {
 	alias $WORK_LEFT_1
 }
 
+output "Dell Inc. DELL P2317H 9KFDW64J076L" {
+	mode 1920x1080@60
+	position -1920,0
+	scale 1
+	alias $WORK_HOME_CENTER
+}
+
+output "Dell Inc. DELL P2317H V2G51784A3DI" {
+	mode 1920x1080@60
+	position -3000,-420
+    transform 90
+	scale 1
+	alias $WORK_HOME_LEFT
+}
+
 output "BNQ BenQ FP93G 0x00001EF5" {
 	mode 1280x1024@60.02000
 	position 2560,416
@@ -50,6 +65,12 @@ output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x0536 Unknown" {
 profile worklaptop_work {
 	output $WORK_LEFT_1 enable
 	output $WORK_RIGHT_1 enable
+	output $INTERNAL enable
+}
+
+profile worklaptop_home {
+	output $WORK_HOME_LEFT enable
+	output $WORK_HOME_CENTER enable
 	output $INTERNAL enable
 }
 
