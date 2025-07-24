@@ -105,7 +105,13 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M - %d.%m.%Y}"
+        "format": "{:%H:%M - %d.%m.%Y}",
+        "calendar": {
+            "on-scroll": 1,
+            "format": {
+                "today": "<span color=\"#3dbc43\">{}</span>"
+            }
+        }
     },
     "cpu": {
         "format": "  CPU {usage}%",
