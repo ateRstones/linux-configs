@@ -72,6 +72,16 @@ profile worklaptop_home {
 	output $WORK_HOME_LEFT enable
 	output $WORK_HOME_CENTER enable
 	output $INTERNAL enable
+    exec hyprctl dispatch moveworkspacetomonitor 2 1
+    exec hyprctl dispatch moveworkspacetomonitor 2 2
+    exec hyprctl dispatch moveworkspacetomonitor 2 3
+    exec hyprctl dispatch moveworkspacetomonitor 2 4
+    exec hyprctl dispatch moveworkspacetomonitor 2 8
+    exec hyprctl dispatch moveworkspacetomonitor 1 5
+    exec hyprctl dispatch moveworkspacetomonitor 2 6
+    exec hyprctl dispatch moveworkspacetomonitor 0 7
+    exec hyprctl dispatch moveworkspacetomonitor 2 9
+    exec hyprctl dispatch moveworkspacetomonitor 2 10
 }
 
 profile worklaptop {

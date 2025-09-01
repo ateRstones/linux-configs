@@ -111,6 +111,13 @@
             "format": {
                 "today": "<span color=\"#3dbc43\">{}</span>"
             }
+        },
+        "timezones": ["Europe/Berlin", "Asia/Tokyo"],
+        "actions": {
+            "on-click": "tz_up",
+            "on-right-click": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
         }
     },
     "cpu": {
