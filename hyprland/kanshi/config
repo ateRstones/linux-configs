@@ -1,4 +1,4 @@
-output "Lenovo Group Limited 0x4149 Unknown" {
+output "Samsung Display Corp. 0x4149 Unknown" {
 	mode 2880x1800@60.00100
 	position 0,0
 	scale 1.5

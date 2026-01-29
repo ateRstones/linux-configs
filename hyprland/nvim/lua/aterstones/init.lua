@@ -102,6 +102,7 @@ cmp.setup({
 })
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>b', function() require('telescope.builtin').buffers({sort_mru=true, ignore_current_buffer=true}) end, { desc = 'Find Buffers' })
 
 -- Make system clipboard the default for most operations (except 'd')
 vim.opt.clipboard:append('unnamedplus')

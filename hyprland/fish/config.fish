@@ -4,6 +4,8 @@ end
 
 set fish_greeting ""
 
+set EDITOR "nvim"
+
 starship init fish | source
 if test -f ~/.config/fish/git.fish
     source ~/.config/fish/git.fish
