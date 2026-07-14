@@ -36,6 +36,7 @@ exec sh -c 'sleep 2; ~/.local/bin/waybar-launch'
 exec blueman-applet
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec wl-clip-persist --clipboard regular
+exec mako
 exec sh -c 'command -v autotiling-rs >/dev/null && exec autotiling-rs'
 
 # Keep delayed and subsequent password-manager windows on workspace 7.
