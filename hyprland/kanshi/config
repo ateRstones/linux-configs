@@ -1,99 +1,109 @@
-output "Samsung Display Corp. 0x4149 Unknown" {
-	mode 2880x1800@60.00100
-	position 0,0
-	scale 1.5
-	alias $INTERNAL
+# Converted from ~/.config/hyprdynamicmonitors/config.toml and hyprconfigs.
+
+profile home-work {
+    output "Samsung Display Corp. 0x4193 Unknown" {
+        mode 2880x1800@60Hz
+        position 0,0
+        scale 1.5
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2317H V2G51784A3DI" {
+        mode 1920x1080@60Hz
+        position -3000,-420
+        scale 1
+        transform 90
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2317H 9KFDW64J076L" {
+        mode 1920x1080@60Hz
+        position -1920,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
 }
 
-output "Dell Inc. DELL P2722HE 3GMN4H3" {
-	mode 1920x1080@60
-	position -1920,0
-	scale 1
-	alias $WORK_RIGHT_1
+profile Home2 {
+    output "Lenovo Group Limited 0x4149 Unknown" {
+        mode 2880x1800@60Hz
+        position 5760,0
+        scale 1.5
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2317H V2G51784A3DI" {
+        mode 1920x1080@60Hz
+        position 2760,-420
+        scale 1
+        transform 90
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2317H 9KFDW64J076L" {
+        mode 1920x1080@60Hz
+        position 3840,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
 }
 
-output "Dell Inc. DELL P2722HE DTD97H3" {
-	mode 1920x1080@60
-	position -3840,0
-	scale 1
-	alias $WORK_LEFT_1
+profile Work {
+    output "Samsung Display Corp. 0x4193 Unknown" {
+        mode 2880x1800@60Hz
+        position 0,0
+        scale 1.5
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2722HE 3GMN4H3" {
+        mode 1920x1080@60Hz
+        position -1920,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2722HE DTD97H3" {
+        mode 1920x1080@60Hz
+        position -3840,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
 }
 
-output "Dell Inc. DELL P2317H 9KFDW64J076L" {
-	mode 1920x1080@60
-	position -1920,0
-	scale 1
-	alias $WORK_HOME_CENTER
+profile Work2 {
+    output "Lenovo Group Limited 0x4149 Unknown" {
+        mode 2880x1800@60Hz
+        position 0,0
+        scale 1.5
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2722HE 3GMN4H3" {
+        mode 1920x1080@60Hz
+        position -1920,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
+
+    output "Dell Inc. DELL P2722HE DTD97H3" {
+        mode 1920x1080@60Hz
+        position -3840,0
+        scale 1
+        transform normal
+        adaptive_sync off
+    }
 }
 
-output "Dell Inc. DELL P2317H V2G51784A3DI" {
-	mode 1920x1080@60
-	position -3000,-420
-    transform 90
-	scale 1
-	alias $WORK_HOME_LEFT
-}
-
-output "BNQ BenQ FP93G 0x00001EF5" {
-	mode 1280x1024@60.02000
-	position 2560,416
-	scale 1
-	alias $HOME_RIGHT
-}
-
-output "Huawei Technologies Co., Inc. ZQE-CBA 0xC080F622" {
-	mode 3440x1440@99.98
-	position -3440,0
-	scale 1
-	alias $HOME_LEFT
-}
-
-output "AOC Q32G1WG4 0x0000160B" {
-	mode 2560x1440@143.91
-	position 0,0
-	scale 1
-	alias $HOME_CENTER
-}
-
-output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x0536 Unknown" {
-    mode 1920x1080@60.01
-    position 0,0
-    scale 1
-    alias $HACKLAPTOP
-}
-
-profile worklaptop_work {
-	output $WORK_LEFT_1 enable
-	output $WORK_RIGHT_1 enable
-	output $INTERNAL enable
-}
-
-profile worklaptop_home {
-	output $WORK_HOME_LEFT enable
-	output $WORK_HOME_CENTER enable
-	output $INTERNAL enable
-    exec hyprctl dispatch moveworkspacetomonitor 2 1
-    exec hyprctl dispatch moveworkspacetomonitor 2 2
-    exec hyprctl dispatch moveworkspacetomonitor 2 3
-    exec hyprctl dispatch moveworkspacetomonitor 2 4
-    exec hyprctl dispatch moveworkspacetomonitor 2 8
-    exec hyprctl dispatch moveworkspacetomonitor 1 5
-    exec hyprctl dispatch moveworkspacetomonitor 2 6
-    exec hyprctl dispatch moveworkspacetomonitor 0 7
-    exec hyprctl dispatch moveworkspacetomonitor 2 9
-    exec hyprctl dispatch moveworkspacetomonitor 2 10
-}
-
-profile worklaptop {
-	output $INTERNAL enable
-}
-
-profile homepc {
-	output $HOME_CENTER enable
-	output $HOME_RIGHT enable
-    output $HOME_LEFT enable
-}
-
-profile hacklaptop {
-    output $HACKLAPTOP enable
+profile fallback {
+    output * enable mode preferred position 0,0 scale 1
 }

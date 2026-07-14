@@ -11,6 +11,8 @@ if test -f ~/.config/fish/git.fish
     source ~/.config/fish/git.fish
 end
 
+fish_add_path ~/.local/bin
+
 # Custom scripts etc
 set -gx SHELL_HELPERS_FOLDER "$HOME/Documents/git/shell-helpers"
 if test -f $SHELL_HELPERS_FOLDER/flux.fish
