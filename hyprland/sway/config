@@ -1,0 +1,148 @@
+# Sway counterpart to the Hyprland workstation configuration.
+
+set $mod Mod4
+set $term kitty
+set $file_manager kitty yazi
+set $menu wofi --show drun
+set $browser firefox
+
+font pango:JetBrainsMono Nerd Font 10
+default_border pixel 1
+default_floating_border pixel 1
+gaps inner 3
+gaps outer 10
+focus_follows_mouse yes
+floating_modifier $mod normal
+
+exec swaybg -i ~/Documents/wallpaper/tree_fog_background.jpg -m fill
+
+input type:keyboard {
+    xkb_layout de
+    xkb_numlock enabled
+}
+
+input type:touchpad {
+    natural_scroll enabled
+}
+
+# Session services
+exec_always gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+exec_always gsettings set org.gnome.desktop.interface gtk-theme Breeze-Dark
+exec /usr/lib/pam_kwallet_init
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec kanshi
+exec sh -c 'sleep 2; ~/.local/bin/waybar-launch'
+exec blueman-applet
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec wl-clip-persist --clipboard regular
+exec sh -c 'command -v autotiling-rs >/dev/null && exec autotiling-rs'
+
+# Keep delayed and subsequent password-manager windows on workspace 7.
+assign [app_id="(?i)^(org\\.keepassxc\\.KeePassXC|keepassxc)$"] workspace number 7
+assign [class="(?i)^(org\\.keepassxc\\.KeePassXC|keepassxc)$"] workspace number 7
+assign [app_id="(?i)^1password$"] workspace number 7
+assign [class="(?i)^1password$"] workspace number 7
+assign [app_id="^WebApp-Slack0417$"] workspace number 6
+assign [class="^WebApp-Slack0417$"] workspace number 6
+
+# Work applications. Sway records the current workspace for each exec request.
+workspace number 1
+exec startup_work.sh kitty
+exec startup_work.sh kitty
+exec startup_work.sh kitty
+workspace number 2
+exec startup_work.sh kitty
+workspace number 5
+exec startup_work.sh firefox
+workspace number 6
+exec gtk-launch WebApp-Slack0417
+workspace number 7
+exec startup_work.sh org.keepassxc.KeePassXC
+exec startup_work.sh 1password
+workspace number 1
+
+# Applications and session commands
+bindsym $mod+q exec $term
+bindsym $mod+a exec $term nvim
+bindsym $mod+y exec $term k9s
+bindsym $mod+c kill
+bindsym Ctrl+Alt+$mod+Shift+h exit
+bindsym $mod+e exec $file_manager
+bindsym $mod+v floating toggle
+bindsym $mod+r exec $menu
+bindsym $mod+f exec $browser
+bindsym $mod+w exec ~/.local/bin/waybar-launch
+bindsym $mod+i exec idea -Dawt.toolkit.name=WLToolkit
+bindsym $mod+u exec code
+bindsym $mod+o exec systemctl suspend
+bindsym Ctrl+$mod+l exec swaylock -f -c 1a1a1a
+
+# Focus and window movement
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+# Workspace selection and movement
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+bindsym $mod+s scratchpad show
+bindsym $mod+Shift+s move scratchpad
+bindsym --whole-window $mod+button4 workspace prev
+bindsym --whole-window $mod+button5 workspace next
+bindsym $mod+comma workspace prev
+bindsym $mod+period workspace next
+bindsym $mod+minus workspace back_and_forth
+bindsym Ctrl+Alt+$mod+Shift+comma move workspace to output left
+bindsym Ctrl+Alt+$mod+Shift+period move workspace to output right
+
+# Screenshots
+bindsym $mod+Print exec grimshot save active
+bindsym Print exec grimshot save output
+bindsym Shift+Print exec grimshot save area
+
+# Multimedia keys remain available while locked.
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous

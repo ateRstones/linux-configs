@@ -1,0 +1,17 @@
+#!/bin/sh
+
+pkill -x waybar 2>/dev/null || true
+sleep 0.2
+
+if [ -n "${SWAYSOCK:-}" ]; then
+    waybar -c "$HOME/.config/waybar/config-sway.jsonc" -s "$HOME/.config/waybar/style.css" &
+    exec waybar -c "$HOME/.config/waybar/config-sway-center.jsonc" -s "$HOME/.config/waybar/style.css"
+fi
+
+if [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+    waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/style.css" &
+    exec waybar -c "$HOME/.config/waybar/config-hyprland-internal.jsonc" -s "$HOME/.config/waybar/style.css"
+fi
+
+printf '%s\n' "waybar-launch: unsupported compositor session" >&2
+exit 1

@@ -19,7 +19,16 @@ ln -sfn $(pwd)/starship/starship.toml ~/.config/starship.toml
 
 mkdir -p ~/.config/waybar
 ln -sfn $(pwd)/waybar/config.jsonc ~/.config/waybar/config.jsonc
+ln -sfn $(pwd)/waybar/config-hyprland-internal.jsonc ~/.config/waybar/config-hyprland-internal.jsonc
+ln -sfn $(pwd)/waybar/config-sway.jsonc ~/.config/waybar/config-sway.jsonc
+ln -sfn $(pwd)/waybar/config-sway-center.jsonc ~/.config/waybar/config-sway-center.jsonc
 ln -sfn $(pwd)/waybar/style.css ~/.config/waybar/style.css
+
+mkdir -p ~/.config/sway
+ln -sfn $(pwd)/sway/config ~/.config/sway/config
+
+mkdir -p ~/.local/bin
+ln -sfn $(pwd)/scripts/waybar-launch ~/.local/bin/waybar-launch
 
 ln -sfn $(pwd)/nvim ~/.config/nvim
 
