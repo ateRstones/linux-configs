@@ -5,7 +5,7 @@ ln -sfn $(pwd)/fish/config.fish ~/.config/fish/config.fish
 ln -sfn $(pwd)/fish/git.fish ~/.config/fish/git.fish
 
 mkdir -p ~/.config/hypr
-ln -sfn $(pwd)/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
+ln -sfn $(pwd)/hyprland/hyprland.lua ~/.config/hypr/hyprland.lua
 ln -sfn $(pwd)/hyprlock/hyprlock.conf ~/.config/hypr/hyprlock.conf
 ln -sfn $(pwd)/hyprpaper/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 
